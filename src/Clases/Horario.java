@@ -1,6 +1,5 @@
 package Clases;
 
-//import java.util.Date;
 import java.io.Serializable;
 import java.time.LocalTime;
 import javax.persistence.*;

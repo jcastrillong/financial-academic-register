@@ -165,7 +165,6 @@ public class RegistrarPeriodos extends javax.swing.JInternalFrame {
                 Periodo periodo = new Periodo(mesInicial, mesFinal, añoInicial , añoFinal);
 
                 //Agregar el periodo a la listas de periodos de la universidad;
-                //Universidad universidad = new Universidad(121212, "UniValle", "Calle 5");
                 universidad.añadirPeriodo(periodo);
 
                 //Mostrar un mensaje informando que el periodo fue creado y agregado

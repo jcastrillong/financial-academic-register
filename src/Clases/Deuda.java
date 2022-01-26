@@ -14,7 +14,6 @@ public class Deuda implements Serializable {
     @Column(nullable = false) // El valor no puede ser nulo 
     private String descripcion;
     //Relaciones de asociacion uno a uno
-    //@Column(nullable = false) // El valor no puede ser nulo 
     @OneToOne
     private Periodo periodo;
 

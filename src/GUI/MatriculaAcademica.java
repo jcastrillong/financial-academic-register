@@ -325,7 +325,6 @@ public class MatriculaAcademica extends javax.swing.JInternalFrame {
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
             Matricula matricula = tabulado.getListadoMatricula().get(rowIndex);
-            //Object value = null;
 
             switch (columnIndex) {
                 case 0:
@@ -339,34 +338,15 @@ public class MatriculaAcademica extends javax.swing.JInternalFrame {
                 case 4:
                     return matricula.getCurso().getAsignatura().getIntensidad();
             }
-
-//            if(rowIndex == getRowCount() && columnIndex == getColumnCount()) {
-//                return matricula.getCurso().getGrupo();
-//            } else if(rowIndex == getColumnCount()) {
-//                return matricula.getCurso().getAsignatura().getNombre();
-//            }
             return "";
         }
 
         @Override
-        public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-
-            //Obtener el objeto a modificar
-            /*
-            Phone phone = seleccion.getPhones().get(rowIndex);
-            if(columIndex == 1) {
-                phone.setNúmero(aValue); //Si es necesario hacerle casting
-            }
-             */
-        }
-
+        public void setValueAt(Object aValue, int rowIndex, int columnIndex) {}
         @Override
-        public void addTableModelListener(TableModelListener l) {
-        }
-
+        public void addTableModelListener(TableModelListener l) {}
         @Override
-        public void removeTableModelListener(TableModelListener l) {
-        }
-
+        public void removeTableModelListener(TableModelListener l) {}
     }
+    
 }

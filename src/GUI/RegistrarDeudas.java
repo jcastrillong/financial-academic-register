@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.crypto.AEADBadTagException;
 import javax.swing.JOptionPane;
 
 public class RegistrarDeudas extends javax.swing.JInternalFrame {
@@ -27,9 +26,7 @@ public class RegistrarDeudas extends javax.swing.JInternalFrame {
                 + this.universidad.getPeriodoActual().getAnioInicio());
         
         botonBuscarEstudiantes.addActionListener(new BuscarEstudiante());
-        
         botonRegistrarDeuda.addActionListener(new RegistrarDeuda());
-        
         botonCancelar.addActionListener(new CancelarListener());
         
     }
@@ -41,16 +38,9 @@ public class RegistrarDeudas extends javax.swing.JInternalFrame {
             try {                
                 int codigo = Integer.parseInt(txtCodigo.getText());
                 
-                estudiante = universidad.buscarEstudiante(codigo);
-
-//                txtNombreEstudiante.setText(estudiante.getPrograma().getCodigo() + 
-//                        " - " + estudiante.getPrograma().getJornada() + " - " + 
-//                        estudiante.getPrograma().getNombre() + " - " + estudiante.getNombre() +
-//                        " " + estudiante.getApellido());    
+                estudiante = universidad.buscarEstudiante(codigo); 
                 txtNombreEstudiante.setText(estudiante.toString());
-                
                 txtInfoPrograma.setText(estudiante.getPrograma().toString());
-                //txtNombreEstudiante.setText(buscar);
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(RegistrarDeudas.this, "Fallo en conversión del código del estudiante");
             } catch (ExcepcionObjetoNoEncontrado ex) {
@@ -72,10 +62,6 @@ public class RegistrarDeudas extends javax.swing.JInternalFrame {
                 //Se obtiene el elemento del JComboBox
                 String seleccion = (String) desplegableDeudas.getSelectedItem();
 
-                //Se obtiene el código del estudiante que se ingresó
-                //int codigo = Integer.parseInt(txtCodigo.getText());
-                //Se hace un llamado al método que busca el estudiante
-                //Estudiante estudiante = universidad.buscarEstudiante(codigo);
                 //Se crea la deuda
                 Deuda deuda = new Deuda(seleccion, universidad.getPeriodoActual());
 
@@ -89,8 +75,7 @@ public class RegistrarDeudas extends javax.swing.JInternalFrame {
             } catch (Exception ex) {
                 Logger.getLogger(RegistrarDeudas.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        
+        }  
     }
     
     public class CancelarListener implements ActionListener {
@@ -101,8 +86,7 @@ public class RegistrarDeudas extends javax.swing.JInternalFrame {
             txtNombreEstudiante.setText("");
             txtInfoPrograma.setText("");
             estudiante = null;
-        }
-        
+        }   
     }
 
     @SuppressWarnings("unchecked")

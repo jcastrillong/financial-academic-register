@@ -24,10 +24,7 @@ public class Universidad implements Serializable {
     //Relaciones de asociacion uno a uno
     private Periodo periodoActual;
     //Relaciones de asociacion uno a muchos
-//    private List<Programa> listadoProgramas;
     private List<Periodo> listadoPeriodos;
-//    private List<Asignatura> listadoAsignaturasUniversidad;
-//    private List<Docente> listadoDocentes;
     private List<Estudiante> listadoEstudiantes;
 
     //Contructor vacio
@@ -40,8 +37,6 @@ public class Universidad implements Serializable {
         this.nombre = nombre;
         this.direccion = direccion;
         this.periodoActual = null;
-//        this.listadoAsignaturasUniversidad = new LinkedList<>();
-//        this.listadoDocentes = new LinkedList<>();
         this.listadoEstudiantes = new LinkedList<>();
         this.listadoPeriodos = new LinkedList<>();
     }
@@ -74,30 +69,19 @@ public class Universidad implements Serializable {
     //Métodos para añadir y eliminar elementos de una lista
     //Asignaturas
     public void añadirAsignatura(Asignatura asignatura) throws Exception {
-
-//        for (Asignatura asig : listadoAsignaturasUniversidad) {
-//            if (asignatura.getCodigo().equals(asig.getCodigo())) {
-//                throw new Exception("La asignatura que desea agregar ya fue agregada antes");
-//            }
-//        }
-//
-//        this.listadoAsignaturasUniversidad.add(asignatura);
         this.asignaturaJpaController.create(asignatura);
     }
 
     public void eliminarAsignatura(Asignatura asignatura) throws NonexistentEntityException {
-        //this.listadoAsignaturasUniversidad.remove(asignatura);
         this.asignaturaJpaController.destroy(asignatura.getCodigo());
     }
 
     //Docentes
     public void añadirDocente(Docente docente) throws Exception {
-        //this.listadoDocentes.add(docente);
         this.docenteJpaController.create(docente);
     }
 
     public void eliminarDocente(Docente docente) throws NonexistentEntityException {
-        //this.listadoDocentes.remove(docente);
         this.docenteJpaController.destroy(docente.getIdentificación());
     }
 
@@ -123,7 +107,6 @@ public class Universidad implements Serializable {
         this.listadoPeriodos.add(periodo);
 
         //Se asigna el periodo agregado como periodo actual
-        //this.periodoActual = periodo;
         this.setPeriodoActual(periodo);
     }
 
@@ -147,8 +130,6 @@ public class Universidad implements Serializable {
         //Estudiante resultadoEncontrado = null;
         for (Estudiante e : this.listadoEstudiantes) {
             if (codigo == e.getCodigo()) {
-                //resultadoEncontrado = e;
-                //return resultadoEncontrado;
                 return e;
             }
         }
@@ -157,23 +138,6 @@ public class Universidad implements Serializable {
 
     //método para buscar una asignatura con su codigo
     public Asignatura buscarAsignatura(String codigoAsignatura) throws ExcepcionObjetoNoEncontrado {
-
-//        for (Asignatura asig : listadoAsignaturasUniversidad) {
-//            if (codigoAsignatura.equals(asig.getCodigo())) {
-//                return asig;
-//            }
-//        }
-//
-//        throw new ExcepcionObjetoNoEncontrado("Código de la asignatura incorrecto");
         return this.asignaturaJpaController.findAsignatura(codigoAsignatura);
     }
-
-//    public  void matricularCurso(Curso curso , Tabulado tab) {
-//        //1. Verificar que la asignatura ya no esté matriculada
-//        //2. Verificar que haya cupos para el estudiante
-//        //3. Verificar que no exceda la cantidad máxima de creditos
-//        curso.añadirEstudiante(estudiante);
-//        tab.añadirMatricula(matricula);
-//        
-//    }
 }

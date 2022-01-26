@@ -19,53 +19,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.menuRealizarMatricula.addActionListener(new MostrarMenuMatriculaAcadem());
         this.menuRegistrarDeuda.addActionListener(new MostrarMenuRegistrarDeudas());
         this.menuRegistrarPeriodo.addActionListener(new MostrarMenuRegistrarPeriodos());
-
-//        this.addWindowListener(new WindowListener() {
-//            @Override
-//            public void windowOpened(WindowEvent e) {
-//            }
-//
-//            @Override
-//            public void windowClosing(WindowEvent e) {
-//                ObjectOutputStream oos = null;
-//                try {
-//                    oos = new ObjectOutputStream(new FileOutputStream("datos.txt"));
-//                    oos.writeObject(VentanaPrincipal.this.universidad);
-//                } catch (FileNotFoundException ex) {
-//                    Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-//                } catch (IOException ex) {
-//                    Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-//                } finally {
-//                    if (oos != null) {
-//                        try {
-//                            oos.close();
-//                        } catch (IOException ex) {
-//                            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void windowClosed(WindowEvent e) {
-//            }
-//
-//            @Override
-//            public void windowIconified(WindowEvent e) {
-//            }
-//
-//            @Override
-//            public void windowDeiconified(WindowEvent e) {
-//            }
-//
-//            @Override
-//            public void windowActivated(WindowEvent e) {
-//            }
-//
-//            @Override
-//            public void windowDeactivated(WindowEvent e) {
-//            }
-//        });
     }
 
     @SuppressWarnings("unchecked")
@@ -189,7 +142,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     est.añadirTabulado(tab);
                 }
 
-                //if (this.ui == null) {
                 this.ui = new MatriculaAcademica(universidad, tab, est);
                 desktopPane1.add(ui);
                 //}
